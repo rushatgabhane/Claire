@@ -2,6 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import * as tf from '@tensorflow/tfjs';
 import {cameraWithTensors} from '@tensorflow/tfjs-react-native';
+import { useIsFocused } from '@react-navigation/native';
 import {Camera} from 'expo-camera';
 import predictor from '../../libs/predictor';
 import PropTypes from 'prop-types';
@@ -18,34 +19,33 @@ const defaultProps = {
   handleGazePrediction: () => {},
 };
 
-class TFCameraGazePredictor extends React.Component {
-  handleCameraStream = (images) => {
+const textureDims = {
+  height: 1200,
+  width: 1600,
+};
+
+const TFCameraGazePredictor = (props) => {
+  const handleCameraStream = (images) => {
     const loop = async () => {
       const nextImageTensor = images.next().value;
       
       if (!nextImageTensor) {
         return;
       }
-      
       const gazePrediction = await predictor.getGazePrediction(nextImageTensor);
-      
-      this.props.handleGazePrediction(gazePrediction);
-
+      props.handleGazePrediction(gazePrediction);
       tf.dispose([nextImageTensor]);
       requestAnimationFrame(loop);
     }
     loop();
   }
 
-  render() {
-    const textureDims = {
-      height: 1200,
-      width: 1600,
-    };
+  const isFocused = useIsFocused();
 
-    return (
-      <View>
-        <TensorCamera
+  return (
+    <View>
+      { isFocused && 
+      <TensorCamera
           style={styles.camera}
           type={Camera.Constants.Type.front}
           cameraTextureHeight={textureDims.height}
@@ -53,13 +53,13 @@ class TFCameraGazePredictor extends React.Component {
           resizeHeight={200}
           resizeWidth={152}
           resizeDepth={3}
-          onReady={this.handleCameraStream}
+          onReady={handleCameraStream}
           autorender={true}
         />
-      </View>
-    );
-  }
-};
+      }
+    </View>
+  );
+}
 
 TFCameraGazePredictor.propTypes = propTypes;
 TFCameraGazePredictor.defaultProps = defaultProps;
