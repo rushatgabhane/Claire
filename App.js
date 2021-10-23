@@ -14,7 +14,6 @@ class App extends React.Component {
     this.handleGazePrediction = this.handleGazePrediction.bind(this);
     
     this.state = {
-      isTfReady: false,
       hasPermission: false,
       gazePrediction: 'Loading.',
     };
@@ -22,10 +21,6 @@ class App extends React.Component {
 
   async componentDidMount() {
     await tf.ready();
-    this.setState({
-      isTfReady: true
-    });
-
     await predictor.loadModel();
     this.getPermissionAsync();
   }
@@ -72,7 +67,7 @@ class App extends React.Component {
           alignItems: 'center',
           fontSize: 30,
         }}>
-          Hello
+          {this.state.gazePrediction}
         </Text>
         <View
           style={this.getBoxStyle()}
