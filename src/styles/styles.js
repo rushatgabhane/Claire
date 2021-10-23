@@ -43,6 +43,12 @@ const styles = {
     height: 500,
     backgroundColor: 'yellow',
   },
+  centerText: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 30,
+  },
 };
 
 export default styles;
