@@ -33,13 +33,13 @@ class App extends React.Component {
   
     this.getPermissionAsync();
     //Output in Expo console
-    console.log('TF ready: ', this.state.isTfReady)
+    // console.log('TF ready: ', this.state.isTfReady)
   }
 
   getPermissionAsync = async () => {
     const {status} = await Camera.requestPermissionsAsync();
     this.state.hasPermission = status === 'granted';
-    console.log('Camera permission: ',this.state.hasPermission);
+    // console.log('Camera permission: ',this.state.hasPermission);
   }
 
   handleCameraStream = (images) => {

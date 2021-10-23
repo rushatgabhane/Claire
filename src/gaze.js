@@ -49,7 +49,7 @@ async function renderPrediction(tensor) {
     if (predictions.length > 0) {
         predictions.forEach((prediction) => {
             if(prediction.faceInViewConfidence != 1){
-                console.log('not predicting: ', prediction.faceInViewConfidence);
+                // console.log('not predicting: ', prediction.faceInViewConfidence);
                 return; // equivalent of continue
             }
             // const keys = Object.keys(prediction);
@@ -60,12 +60,10 @@ async function renderPrediction(tensor) {
             positionXLeftIris = prediction.annotations.leftEyeIris[0][0];
             positionYLeftIris = prediction.annotations.leftEyeIris[0][1];
 
-            // NOT FLIPPED FOR mobile
             const faceBottomLeftX =
                 video.width - prediction.boundingBox.bottomRight[0]; // face is flipped horizontally so bottom right is actually bottom left.
             const faceBottomLeftY = prediction.boundingBox.bottomRight[1];
 
-            // NOT FLIPPED FOR mobile
             const faceTopRightX = video.width - prediction.boundingBox.topLeft[0]; // face is flipped horizontally so top left is actually top right.
             const faceTopRightY = prediction.boundingBox.topLeft[1];
 
@@ -76,8 +74,8 @@ async function renderPrediction(tensor) {
                     faceTopRightX,
                     faceBottomLeftX
                 );
-                console.log('face in view', prediction.faceInViewConfidence);
-                console.log('X: ', normalizedXIrisPosition);
+                // console.log('face in view', prediction.faceInViewConfidence);
+                // console.log('X: ', normalizedXIrisPosition);
                 if (normalizedXIrisPosition > 0.36) { // original 0.355
                     event = "RIGHT";
                 } else if (normalizedXIrisPosition < 0.315) { //original 0.315
@@ -95,11 +93,11 @@ async function renderPrediction(tensor) {
                     faceTopRightY,
                     faceBottomLeftY
                 );
-                console.log('normalized y: ', normalizedYIrisPosition)
+                // console.log('normalized y: ', normalizedYIrisPosition)
                 if (normalizedYIrisPosition > 0.64) {
                     event = "TOP";
                 }
-                console.log('event:', event);
+                // console.log('event:', event);
             }
         });
     }
