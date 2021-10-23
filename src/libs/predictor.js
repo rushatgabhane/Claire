@@ -1,14 +1,10 @@
 import * as faceLandmarksDetection from "@tensorflow-models/face-landmarks-detection";
-import * as tf from '@tensorflow/tfjs'
-// import * as tfcore from "@tensorflow/tfjs-core";
-// import "@tensorflow/tfjs-backend-webgl";
 
 let model;
-
-let amountStraightEvents = 0;
+let event;
 let positionXLeftIris;
 let positionYLeftIris;
-let event;
+let amountStraightEvents = 0;
 
 const video = {
     width: 1200,
@@ -106,7 +102,7 @@ async function renderPrediction(tensor) {
 
 async function loadModel() {
   model = await faceLandmarksDetection.load(faceLandmarksDetection.SupportedPackages.mediapipeFacemesh, {
-    maxFaces: 1,
+    maxFaces: 1, 
   });
 };
 
