@@ -74,7 +74,7 @@ async function renderPrediction(tensor) {
                 // console.log('X: ', normalizedXIrisPosition);
                 if (normalizedXIrisPosition > 0.36) { // original 0.355
                     event = "RIGHT";
-                } else if (normalizedXIrisPosition < 0.315) { //original 0.315
+                } else if (normalizedXIrisPosition < 0.32) { //original 0.315
                     event = "LEFT";
                 } else {
                     amountStraightEvents++;
