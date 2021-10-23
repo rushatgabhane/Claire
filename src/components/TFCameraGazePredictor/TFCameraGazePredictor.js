@@ -18,7 +18,7 @@ const defaultProps = {
   handleGazePrediction: () => {},
 };
 
-class CameraGazePredictor extends React.Component {
+class TFCameraGazePredictor extends React.Component {
   handleCameraStream = (images) => {
     const loop = async () => {
       const nextImageTensor = images.next().value;
@@ -61,8 +61,8 @@ class CameraGazePredictor extends React.Component {
   }
 };
 
-CameraGazePredictor.propTypes = propTypes;
-CameraGazePredictor.defaultProps = defaultProps;
-CameraGazePredictor.displayName = 'CameraGazePredictor';
+TFCameraGazePredictor.propTypes = propTypes;
+TFCameraGazePredictor.defaultProps = defaultProps;
+TFCameraGazePredictor.displayName = 'CameraGazePredictor';
 
-export default CameraGazePredictor;
+export default TFCameraGazePredictor;

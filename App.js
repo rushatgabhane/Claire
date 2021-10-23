@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, StatusBar} from 'react-native';
 import * as tf from '@tensorflow/tfjs';
 import {Camera} from 'expo-camera';
-import CameraGazePredictor from './src/components/CameraGazePredictor';
+import TFCameraGazePredictor from './src/components/TFCameraGazePredictor';
 import predictor from './src/libs/predictor';
 import styles from './src/styles';
 
@@ -58,7 +58,7 @@ class App extends React.Component {
     return (
       <View>
         <StatusBar hidden />
-        <CameraGazePredictor
+        <TFCameraGazePredictor
           handleGazePrediction={this.handleGazePrediction}
         />
         <Text style={{
