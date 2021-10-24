@@ -49,6 +49,11 @@ const styles = {
     alignItems: 'center',
     fontSize: 30,
   },
+  iconBox: {
+    borderRadius: 8,
+    height: 120,
+    width: 178,
+  }
 };
 
 export default styles;
