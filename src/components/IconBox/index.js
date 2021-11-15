@@ -1,12 +1,12 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import PropTypes from 'prop-types';
 import {colors} from '../../theme';
 import styles from '../../styles';
 
 const propTypes = {
     /* Icon to display inside box */
-    icon: PropTypes.object.isRequired,
+    iconName: PropTypes.string.isRequired,
 
     /* Text to display under icon*/
     label: PropTypes.string.isRequired,
@@ -20,16 +20,29 @@ const defaultProps = {
 };
 
 
-class IconBox extends React.PureComponent {
-    constructor(props) {
-        super(props);
+class IconBox extends React.Component {
+    // constructor(props) {
+    //     super(props);
 
-    }
+    // }
 
     render() {
         return (
-            <View style={styles.iconBox, {backgroundColor: this.props.backgroundColor} }>
-
+            <View style={{
+                backgroundColor: this.props.backgroundColor,
+                height: 120,
+                width: 178,
+                display: 'flex',
+                justifyContent: 'center',
+                borderRadius: 8,
+            }}>
+                <Image
+                    style={styles.iconImage} 
+                    source={require(`../../../assets/light.png`)}
+                />
+                <Text style={styles.label}>
+                    {this.props.label}
+                </Text>
             </View>
         );
     }

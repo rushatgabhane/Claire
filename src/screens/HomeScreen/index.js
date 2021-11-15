@@ -43,21 +43,6 @@ class HomeScreen extends React.Component {
         return status === 'granted';
     }
 
-    getBoxStyle() {
-        if (this.state.gazePrediction === 'STRAIGHT') {
-            return styles.greenBox;
-        }
-        if (this.state.gazePrediction === 'LEFT') {
-            return styles.redBox;
-        }
-        if (this.state.gazePrediction === 'RIGHT') {
-            return styles.blueBox;
-        }
-        if (this.state.gazePrediction === 'TOP') {
-            return styles.yellowBox;
-        }
-    }
-
     render() {
         // todo: use two IconBoxLists. left, right both flex 0.5 horizontally.
         return (
@@ -76,10 +61,6 @@ class HomeScreen extends React.Component {
                 >
                     {this.state.gazePrediction}
                 </Text>
-                <View
-                    style={this.getBoxStyle()}
-                >
-                </View>
             </View>
         );
     }

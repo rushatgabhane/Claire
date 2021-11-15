@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import styles from '../../styles';
+import IconBox from '../../components/IconBox';
 
 class SpeakScreeen extends React.Component {
     constructor(props) {
@@ -10,9 +11,10 @@ class SpeakScreeen extends React.Component {
     render() {
         return (
             <View>
-                <Text style={styles.centerText}>
-                    Speak Screen
-                </Text>
+                <IconBox 
+                    iconName="light.png"
+                    label="light"
+                />
             </View>
         );
     }

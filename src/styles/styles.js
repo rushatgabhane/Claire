@@ -49,10 +49,30 @@ const styles = {
     alignItems: 'center',
     fontSize: 30,
   },
-  iconBox: {
-    borderRadius: 8,
-    height: 120,
-    width: 178,
+  // iconBox: {
+  //   borderRadius: 8,
+  //   height: 120,
+  //   width: 178,
+  //   display: 'flex',
+  //   justifyContent: 'center',
+  //   // flex: ,
+  //   // alignItems: 'center',
+  //   // flexDirection: 'column',
+  // },
+  iconBoxList: {
+
+  },
+  iconImage: {
+    height: 60,
+    width: 60,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  label: {
+    fontSize: 20,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#404943',
   }
 };
 
