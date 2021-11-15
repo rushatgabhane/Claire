@@ -1,3 +1,4 @@
+import {colors} from "../theme";
 const styles = {
   container: {
     flex: 1,
@@ -23,44 +24,20 @@ const styles = {
     fontSize: 18,
     color: 'white',
   },
-  redBox: {
-    width: 500,
-    height: 500,
-    backgroundColor: 'red',
-  },
-  blueBox: {
-    width: 500,
-    height: 500,
-    backgroundColor: 'blue',
-  },
-  greenBox: {
-    width: 500,
-    height: 500,
-    backgroundColor: 'green',
-  },
-  yellowBox: {
-    width: 500,
-    height: 500,
-    backgroundColor: 'yellow',
-  },
   centerText: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     fontSize: 30,
   },
-  // iconBox: {
-  //   borderRadius: 8,
-  //   height: 120,
-  //   width: 178,
-  //   display: 'flex',
-  //   justifyContent: 'center',
-  //   // flex: ,
-  //   // alignItems: 'center',
-  //   // flexDirection: 'column',
-  // },
+  allIcons: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    backgroundColor: colors.white,
+  },
   iconBoxList: {
-
+    
   },
   iconImage: {
     height: 60,
@@ -72,8 +49,11 @@ const styles = {
     fontSize: 20,
     textAlign: 'center',
     fontWeight: 'bold',
-    color: '#404943',
-  }
+    color: colors.black,
+  },
+  w50: {
+    width: '50%',
+  },
 };
 
 export default styles;

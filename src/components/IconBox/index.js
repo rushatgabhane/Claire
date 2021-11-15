@@ -19,22 +19,19 @@ const defaultProps = {
     backgroundColor: colors.grey,
 };
 
-
+// TODO: iconbox style center
 class IconBox extends React.Component {
-    // constructor(props) {
-    //     super(props);
-
-    // }
-
     render() {
         return (
             <View style={{
                 backgroundColor: this.props.backgroundColor,
                 height: 120,
-                width: 178,
+                width: 150,
                 display: 'flex',
                 justifyContent: 'center',
                 borderRadius: 8,
+                marginTop: 20,
+                marginHorizontal: 10,
             }}>
                 <Image
                     style={styles.iconImage} 

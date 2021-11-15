@@ -29,6 +29,13 @@ class HomeScreen extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.gazePrediction != prevState.gazePrediction) {
+            
+        }
+
+    }
+
     handleGazePrediction(gazePrediction) {
         if (gazePrediction === this.state.gazePrediction) {
             return;
