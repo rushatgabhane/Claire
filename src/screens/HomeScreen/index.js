@@ -51,10 +51,8 @@ class HomeScreen extends React.Component {
     }
 
     render() {
-        // todo: use two IconBoxLists. left, right both flex 0.5 horizontally.
         return (
             <View>
-                <StatusBar hidden />
                 {this.state.hasPermission === true
                     ? <TFCameraGazePredictor
                         handleGazePrediction={this.handleGazePrediction}

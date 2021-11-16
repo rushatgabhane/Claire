@@ -1,5 +1,9 @@
 import React from 'react';
 import {Text, View, ScrollView, TouchableOpacity, Pressable} from 'react-native';
+import * as tf from '@tensorflow/tfjs';
+import {Camera} from 'expo-camera';
+import TFCameraGazePredictor from '../../components/TFCameraGazePredictor';
+import predictor from '../../libs/predictor';
 import styles from '../../styles';
 import IconBoxList from '../../components/IconBoxList';
 import {leftIcons, rightIcons} from '../../utils/DefaultIconBoxArray';
@@ -15,6 +19,8 @@ class SpeakScreeen extends React.Component {
         this.handleLookLeft = this.handleLookLeft.bind(this);
         this.handleLookRight = this.handleLookRight.bind(this);
         this.handleIOTDevice = this.handleIOTDevice.bind(this);
+        this.getPermissionAsync = this.getPermissionAsync.bind(this);
+        this.handleGazePrediction = this.handleGazePrediction.bind(this);
 
         this.originalLeftIcons = leftIcons;
         this.originalRightIcons = rightIcons;
@@ -24,6 +30,44 @@ class SpeakScreeen extends React.Component {
             rightIcons: rightIcons,
             originalLeftIcons: leftIcons,
             originalRightIcons: rightIcons,
+            hasPermission: false,
+            gazePrediction: 'Loading.',
+        }
+    }
+
+    async componentDidMount() {
+        await tf.ready();
+        await predictor.loadModel();
+        if (this.getPermissionAsync()) {
+            this.setState({
+                hasPermission: true,
+            });
+        }
+    }
+
+    handleGazePrediction(gazePrediction) {
+        if (gazePrediction === this.state.gazePrediction) {
+            return;
+        }
+        this.setState({
+            gazePrediction,
+        });
+    }
+
+    getPermissionAsync = async () => {
+        const { status } = await Camera.requestPermissionsAsync();
+        return status === 'granted';
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.gazePrediction != prevState.gazePrediction) {
+            if (this.state.gazePrediction === 'LEFT') {
+                this.handleLookLeft();
+            } else if (this.state.gazePrediction === 'RIGHT') {
+                this.handleLookRight();
+            } else if (this.state.gazePrediction === 'TOP') {
+                this.handleLookUp();
+            }
         }
     }
     // todo look up calls reset
@@ -128,11 +172,23 @@ class SpeakScreeen extends React.Component {
     render() {
         return (
             <View style={{flex:1}}>
+                <View>
+                    {this.state.hasPermission === true
+                        ? <TFCameraGazePredictor
+                            handleGazePrediction={this.handleGazePrediction}
+                        />
+                        : <Text>
+                            Please grant camera permissions.
+                        </Text>
+                    }
+                </View>
                 <TouchableOpacity
                     ref={touchable => this.infoBox = touchable}
                     onPress={this.handleLookUp}
                 >
-                    <InfoBox />
+                    <InfoBox 
+                        text={this.state.gazePrediction}
+                    />
                 </TouchableOpacity>
                 <View style={styles.pillBoxParent}>
                     <PillBox />

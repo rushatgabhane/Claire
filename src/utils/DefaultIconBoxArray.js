@@ -1,6 +1,5 @@
 import React from "react";
 import IconBox from "../components/IconBox";
-import {colors} from '../theme';
 
 let leftIcons = [];
 leftIcons[0] = <IconBox iconName="light" label="Light" key={1} />

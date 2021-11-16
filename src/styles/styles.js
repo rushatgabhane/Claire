@@ -4,10 +4,10 @@ const styles = {
     flex: 1,
   },
   camera: {
-    height: 400,
-    width: 300,
-    // top: -100,
-    // position: 'absolute'
+    height: 4,
+    width: 3,
+    top: -100,
+    position: 'absolute'
   },
   buttonContainer: {
     flex: 1,

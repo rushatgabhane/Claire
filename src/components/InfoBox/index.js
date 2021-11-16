@@ -11,6 +11,8 @@ const propTypes = {
 
     /* Background color of the box*/
     backgroundColor: PropTypes.string,
+
+    text: PropTypes.string,
 };
 
 const defaultProps = {
@@ -22,12 +24,19 @@ class InfoBox extends React.PureComponent {
     render() {
         return (
             <View style={styles.infoBox}>
-                <Text style={{
+                {this.props.text.length != 0
+                ? <Text style={{
+                    color: colors.black,
+                    marginTop: 20,
+                }}>
+                    {this.props.text}
+                </Text> 
+                : <Text style={{
                     color: colors.black,
                     marginTop: 20,
                 }}>
                     It's a beautiful day!
-                </Text>
+                </Text>}
                 <Text style={styles.infoBoxText}>Look up to dismiss</Text>
             </View>
         );
