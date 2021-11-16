@@ -28,7 +28,7 @@ class LetterBox extends React.PureComponent {
                 borderRadius: 80,
                 marginTop: 12,
             }}>
-                <Text style={styles.label}>
+                <Text style={styles.letter}>
                     {this.props.text}
                 </Text>
             </View>

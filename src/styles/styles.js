@@ -104,6 +104,12 @@ const styles = {
     justifyContent: 'space-evenly',
     marginTop: 'auto',
     marginBottom: 'auto',
+  },
+  letter: {
+    fontSize: 18,
+    textAlign: 'center',
+    // fontWeight: 'bold',
+    color: colors.black,
   }
 };
 

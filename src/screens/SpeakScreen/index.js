@@ -150,8 +150,8 @@ class SpeakScreen extends React.Component {
                     onPress={this.handleLookUp}
                 >
                     <InfoBox 
-                        text={`Look up to speak.
-        ${this.state.gazePrediction}`}
+                        text={`       ${this.state.gazePrediction}
+ Look up to speak`}
                         boldText={this.state.word}
                     />
                 </TouchableOpacity>
