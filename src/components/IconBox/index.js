@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 import {colors} from '../../theme';
 import styles from '../../styles';
@@ -26,17 +26,36 @@ class IconBox extends React.Component {
             <View style={{
                 backgroundColor: this.props.backgroundColor,
                 height: 120,
-                width: 150,
+                width: 168,
                 display: 'flex',
                 justifyContent: 'center',
                 borderRadius: 8,
                 marginTop: 20,
-                marginHorizontal: 10,
             }}>
-                <Image
+                {this.props.iconName === 'fan' && <Image
                     style={styles.iconImage} 
-                    source={require(`../../../assets/light.png`)}
-                />
+                    source={require('../../../assets/fan.png')}
+                />}
+                {this.props.iconName === 'light' && <Image
+                    style={styles.iconImage} 
+                    source={require('../../../assets/light.png')}
+                />}
+                {this.props.iconName === 'emergency' && <Image
+                    style={styles.iconImage} 
+                    source={require('../../../assets/emergency.png')}
+                />}
+                {this.props.iconName === 'water' && <Image
+                    style={styles.iconImage} 
+                    source={require('../../../assets/water.png')}
+                />}
+                {this.props.iconName === 'toilet' && <Image
+                    style={styles.iconImage} 
+                    source={require('../../../assets/toilet.png')}
+                />}
+                {this.props.iconName === 'customMessage' && <Image
+                    style={styles.iconImage} 
+                    source={require('../../../assets/customMessage.png')}
+                />}
                 <Text style={styles.label}>
                     {this.props.label}
                 </Text>

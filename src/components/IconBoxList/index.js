@@ -13,8 +13,6 @@ const propTypes = {
 
     /* Background color of the box*/
     backgroundColor: PropTypes.string,
-
-    styles: PropTypes.object,
 };
 
 const defaultProps = {
@@ -29,7 +27,7 @@ class IconBoxList extends React.PureComponent {
 
     render() {
         return (
-            <View style={styles.iconBoxList, this.props.styles}>
+            <View style={styles.iconBoxList}>
                 {this.props.iconBoxList}
             </View>
         );

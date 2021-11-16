@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, ScrollView} from 'react-native';
+import {Text, View, ScrollView, TouchableOpacity} from 'react-native';
 import styles from '../../styles';
 import IconBox from '../../components/IconBox';
 import IconBoxList from '../../components/IconBoxList';
@@ -44,18 +44,26 @@ class SpeakScreeen extends React.Component {
 
     render() {
         return (
-            <ScrollView>
-                <View style={styles.allIcons}>
-                    <IconBoxList
-                        styles={styles.w50, styles.iconBoxList}
-                        iconBoxList={this.leftIcons}
-                    />
-                    <IconBoxList
-                        styles={styles.w50, styles.iconBoxList, {backgroundColor: 'red'}}
-                        iconBoxList={this.rightIcons}
-                    />
-                </View>
-            </ScrollView>
+            <View>
+
+                <ScrollView>
+                    <View style={styles.allIcons}>
+                        <TouchableOpacity style={styles.w50}>
+                            <IconBoxList
+                                iconBoxList={this.leftIcons}
+                            />
+                        </TouchableOpacity>
+                        <View style={styles.seperator}>
+
+                        </View>
+                        <TouchableOpacity style={styles.w50}>
+                            <IconBoxList
+                                iconBoxList={this.rightIcons}
+                            />
+                        </TouchableOpacity>
+                    </View>
+                </ScrollView>
+            </View>
         );
     }
 }

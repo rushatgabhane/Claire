@@ -37,23 +37,28 @@ const styles = {
     backgroundColor: colors.white,
   },
   iconBoxList: {
-    
+    alignItems: 'center',
   },
   iconImage: {
-    height: 60,
-    width: 60,
+    height: 40,
+    width: 40,
     marginLeft: 'auto',
     marginRight: 'auto',
+    marginBottom: 10,
   },
   label: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: 'center',
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     color: colors.black,
   },
   w50: {
     width: '50%',
   },
+  seperator: {
+    backgroundColor: colors.secondary,
+    width: 4,
+  }
 };
 
 export default styles;

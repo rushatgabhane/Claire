@@ -1,4 +1,5 @@
 import React from 'react';
+import {StatusBar} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './src/screens/HomeScreen';
@@ -11,6 +12,7 @@ class App extends React.Component {
     render() {
         return (
             <NavigationContainer theme={theme}>
+                <StatusBar hidden />
                 <Tab.Navigator>
                     <Tab.Screen name="Speak" component={SpeakScreen} />
                     <Tab.Screen name="Home" component={HomeScreen} />
