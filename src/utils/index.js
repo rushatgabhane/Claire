@@ -40,25 +40,30 @@ function speakIOTToggle(iconBox) {
     }
 
     if (iconBox.props.iconName === 'emergency') {
-        return Speech.speak('Dialing emergency contact number.', speechOptions);
+        return Speech.speak('Dialing emergency contact number, and sending message for help!', speechOptions);
     }
 
     if (iconBox.props.iconName === 'toilet') {
-        return Speech.speak('I need to go to washroom', speechOptions);
+        return Speech.speak('I need to go to washroom.', speechOptions);
     }
 
     if(iconBox.props.iconName === 'water') {
-        return Speech.speak('I need some water', speechOptions);
+        return Speech.speak('I need some water please.', speechOptions);
     }
 
     const deviceIsOn = iconBox.props.backgroundColor === colors.primary;
     if (deviceIsOn) {
-        return Speech.speak(`Turning off ${deviceName}`, speechOptions);
+        return Speech.speak(`Turning off ${deviceName}.`, speechOptions);
     }
-    Speech.speak(`Turning on ${deviceName}`, speechOptions);
+    Speech.speak(`Turning on ${deviceName}.`, speechOptions);
+}
+
+function speakWord(word) {
+    return Speech.speak(word);
 }
 
 export {
     toggleIconBoxColor,
     speakIOTToggle,
+    speakWord,
 };

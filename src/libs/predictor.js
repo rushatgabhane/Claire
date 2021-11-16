@@ -65,13 +65,13 @@ async function renderPrediction(tensor) {
                     faceTopRightX,
                     faceBottomLeftX
                 );
-                if (normalizedXIrisPosition > 0.365) { // original 0.355
+                if (normalizedXIrisPosition > 0.36) { // original 0.355
                     event = "RIGHT";
                 } else if (normalizedXIrisPosition < 0.32) { //original 0.315
                     event = "LEFT";
                 } else {
                     amountStraightEvents++;
-                    if (amountStraightEvents > 8) {
+                    if (amountStraightEvents > 4) {
                         event = "STRAIGHT";
                         amountStraightEvents = 0;
                     }
