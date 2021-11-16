@@ -6,9 +6,6 @@ import styles from '../../styles';
 import PillBox from '../../components/PillBox';
 
 const propTypes = {
-    /** Direction of iris */
-    gazeDirection: PropTypes.string,
-
     /* Background color of the box*/
     backgroundColor: PropTypes.string,
 
@@ -16,27 +13,20 @@ const propTypes = {
 };
 
 const defaultProps = {
-    gazeDirection: 'Initializing',
     backgroundColor: colors.grey,
+    text: 'It\'s a beautiful day!',
 };
 
 class InfoBox extends React.PureComponent {
     render() {
         return (
             <View style={styles.infoBox}>
-                {this.props.text.length != 0
-                ? <Text style={{
+                <Text style={{
                     color: colors.black,
                     marginTop: 20,
                 }}>
                     {this.props.text}
                 </Text> 
-                : <Text style={{
-                    color: colors.black,
-                    marginTop: 20,
-                }}>
-                    It's a beautiful day!
-                </Text>}
                 <Text style={styles.infoBoxText}>Look up to dismiss</Text>
             </View>
         );

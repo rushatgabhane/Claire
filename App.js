@@ -30,8 +30,8 @@ class App extends React.Component {
                         // headerShown: false,
                     })}
                 >
-                    <Tab.Screen name="Speak" component={SpeakScreen} />
                     <Tab.Screen name="Home" component={HomeScreen} />
+                    <Tab.Screen name="Speak" component={SpeakScreen} />
                 </Tab.Navigator>
             </NavigationContainer>
         );

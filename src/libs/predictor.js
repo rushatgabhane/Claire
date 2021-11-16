@@ -45,13 +45,8 @@ async function renderPrediction(tensor) {
     if (predictions.length > 0) {
         predictions.forEach((prediction) => {
             if(prediction.faceInViewConfidence != 1){
-                // console.log('not predicting: ', prediction.faceInViewConfidence);
                 return; // equivalent of continue
             }
-            // const keys = Object.keys(prediction);
-            // console.log('keys:', keys);
-            // console.log('face in view ', prediction.faceInViewConfidence);
-            // console.log('annotation keys ', Object.keys(prediction.annotations))
 
             positionXLeftIris = prediction.annotations.leftEyeIris[0][0];
             positionYLeftIris = prediction.annotations.leftEyeIris[0][1];
@@ -70,9 +65,7 @@ async function renderPrediction(tensor) {
                     faceTopRightX,
                     faceBottomLeftX
                 );
-                // console.log('face in view', prediction.faceInViewConfidence);
-                // console.log('X: ', normalizedXIrisPosition);
-                if (normalizedXIrisPosition > 0.36) { // original 0.355
+                if (normalizedXIrisPosition > 0.365) { // original 0.355
                     event = "RIGHT";
                 } else if (normalizedXIrisPosition < 0.32) { //original 0.315
                     event = "LEFT";
@@ -89,11 +82,9 @@ async function renderPrediction(tensor) {
                     faceTopRightY,
                     faceBottomLeftY
                 );
-                // console.log('normalized y: ', normalizedYIrisPosition)
                 if (normalizedYIrisPosition > 0.64) {
                     event = "TOP";
                 }
-                // console.log('event:', event);
             }
         });
     }
