@@ -74,7 +74,6 @@ class SpeakScreen extends React.Component {
     }
 
     handleLookUp() {
-        playDing();
         speakWord(this.state.word);
         this.setState({
             leftLetters: this.state.originalLeftLetters,
