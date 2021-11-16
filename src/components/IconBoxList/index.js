@@ -1,15 +1,12 @@
 import React from 'react';
-import {View, Text, ViewPropTypes} from 'react-native';
+import {View} from 'react-native';
 import PropTypes from 'prop-types';
 import {colors} from '../../theme';
 import styles from '../../styles';
-import IconBox from '../IconBox';
 
 const propTypes = {
     /* Icons to display */
     iconBoxList: PropTypes.arrayOf(PropTypes.object).isRequired,
-
-    // styles: PropTypes.
 
     /* Background color of the box*/
     backgroundColor: PropTypes.string,
@@ -20,11 +17,6 @@ const defaultProps = {
 };
 
 class IconBoxList extends React.PureComponent {
-    constructor(props) {
-        super(props);
-
-    }
-
     render() {
         return (
             <View style={styles.iconBoxList}>

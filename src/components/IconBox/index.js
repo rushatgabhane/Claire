@@ -19,8 +19,7 @@ const defaultProps = {
     backgroundColor: colors.grey,
 };
 
-// TODO: iconbox style center
-class IconBox extends React.Component {
+class IconBox extends React.PureComponent {
     render() {
         return (
             <View style={{
