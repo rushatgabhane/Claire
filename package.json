@@ -20,6 +20,7 @@
     "expo-camera": "~11.2.2",
     "expo-gl": "~10.4.2",
     "expo-gl-cpp": "~10.4.1",
+    "expo-speech": "~9.2.1",
     "expo-status-bar": "~1.0.4",
     "jpeg-js": "^0.4.3",
     "prop-types": "^15.7.2",

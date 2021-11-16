@@ -5,7 +5,7 @@ import IconBoxList from '../../components/IconBoxList';
 import {leftIcons, rightIcons} from '../../utils/DefaultIconBoxArray';
 import InfoBox from '../../components/InfoBox';
 import PillBox from '../../components/PillBox';
-import {toggleIconBoxColor} from '../../utils';
+import {toggleIconBoxColor, speakIOTToggle} from '../../utils';
 
 class SpeakScreeen extends React.Component {
     constructor(props) {
@@ -114,6 +114,8 @@ class SpeakScreeen extends React.Component {
         } else if (rightIndex !== -1) {
             newRightIcons[rightIndex] = newIconBox;
         }
+
+        speakIOTToggle(iconBox);
 
         this.setState({
             originalLeftIcons: newLeftIcons,
