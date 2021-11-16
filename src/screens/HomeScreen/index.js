@@ -9,7 +9,7 @@ import IconBoxList from '../../components/IconBoxList';
 import {leftIcons, rightIcons} from '../../utils/DefaultIconBoxArray';
 import InfoBox from '../../components/InfoBox';
 import PillBox from '../../components/PillBox';
-import {toggleIconBoxColor, speakIOTToggle} from '../../utils';
+import {toggleIconBoxColor, speakIOTToggle, playDing} from '../../utils';
 
 class HomeScreen extends React.Component {
     constructor(props) {
@@ -72,6 +72,7 @@ class HomeScreen extends React.Component {
     }
 
     handleLookUp() {
+        playDing();
         this.setState({
             leftIcons: this.state.originalLeftIcons,
             rightIcons: this.state.originalRightIcons,
@@ -83,6 +84,7 @@ class HomeScreen extends React.Component {
             return;
         }
 
+        playDing();
         if (this.state.leftIcons.length === 1 && this.state.rightIcons.length === 0) {
             this.handleIOTDevice(this.state.leftIcons[0]);
             return;
@@ -103,6 +105,7 @@ class HomeScreen extends React.Component {
             return;
         }
 
+        playDing();
         if (this.state.rightIcons.length === 1 && this.state.leftIcons.length === 0) {
             this.handleIOTDevice(this.state.rightIcons[0]);
             return;

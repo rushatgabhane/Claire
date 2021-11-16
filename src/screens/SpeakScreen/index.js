@@ -10,6 +10,7 @@ import {leftLetters, rightLetters} from '../../utils/DefaultLetterBoxArray';
 import InfoBox from '../../components/InfoBox';
 import PillBox from '../../components/PillBox';
 import {speakWord} from '../../utils';
+import {playDing} from '../../utils';
 
 class SpeakScreen extends React.Component {
     constructor(props) {
@@ -73,6 +74,7 @@ class SpeakScreen extends React.Component {
     }
 
     handleLookUp() {
+        playDing();
         speakWord(this.state.word);
         this.setState({
             leftLetters: this.state.originalLeftLetters,
@@ -86,6 +88,7 @@ class SpeakScreen extends React.Component {
             return;
         }
 
+        playDing();
         if (this.state.leftLetters.length === 1 && this.state.rightLetters.length === 0) {
             this.handleLetter(this.state.leftLetters[0].props.text);
             return;
@@ -106,6 +109,7 @@ class SpeakScreen extends React.Component {
             return;
         }
 
+        playDing();
         if (this.state.rightLetters.length === 1 && this.state.leftLetters.length === 0) {
             this.handleLetter(this.state.rightLetters[0].props.text);
             return;
