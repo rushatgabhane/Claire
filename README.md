@@ -11,4 +11,9 @@ Make sure you have react native with expo setup https://reactnative.dev/docs/env
 ### Snapshots
 <img src="https://user-images.githubusercontent.com/29673073/143979606-9e973c94-e0b8-4dc3-94f9-0e72469d71a7.jpeg" height="500">
 
+Flow chart
+
+<img src="https://user-images.githubusercontent.com/29673073/143983801-48f5eebe-bf70-4789-b431-6cb1b4de767d.jpg" height="700">
+
+
 Built using TensorFlow.js, and React Native.
