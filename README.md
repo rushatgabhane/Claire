@@ -2,6 +2,8 @@
 
 Control IoT devices like light, fan, climate control using **iris movements** like gaze left, right, and up.
 
+Built using TensorFlow.js, and React Native.
+
 ### Build Instructions
 Make sure you have react native with expo setup https://reactnative.dev/docs/environment-setup.
 
@@ -15,5 +17,3 @@ Flow chart
 
 <img src="https://user-images.githubusercontent.com/29673073/143983801-48f5eebe-bf70-4789-b431-6cb1b4de767d.jpg" height="700">
 
-
-Built using TensorFlow.js, and React Native.
