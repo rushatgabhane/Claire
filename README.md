@@ -1,4 +1,4 @@
-# Claire - Smart Home for the paralyzed
+# Claire - Smart Assistant for the paralyzed
 
 Control IoT devices like light, fan, climate control using **iris movements** like gaze left, right, and up.
 
